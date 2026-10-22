@@ -44,6 +44,20 @@ npm test --workspace=sep10-auth
 5. For release-related changes, add notes under `[Unreleased]` in the root `CHANGELOG.md`; maintainer release preparation moves those notes into a dated versioned entry.
 6. Open a PR referencing the issue number (`Fixes #123`) and describe what you changed and why.
 
+## Commit message conventions
+
+This repository follows [Conventional Commits](https://www.conventionalcommits.org/) style:
+
+```text
+type(scope): short imperative summary
+```
+
+- **type** is one of `feat`, `fix`, `docs`, `test`, `refactor`, `perf`, `build`, `ci` or `chore`.
+- **scope** (optional) names the package the change belongs to, for example `sep10-auth`, `sanctions-oracle`, `horizon-listener` or `logger`. This matches how package-scoped commit subjects already appear in the history (for example `feat(sep10-auth): ...`, `fix(horizon-listener): ...`).
+- **summary** is a short, imperative description of the change, lower-case and without a trailing period, for example `fix(horizon-listener): require startLedger, warn on low pollIntervalMs`.
+
+This is a convention for readable history, not an enforced CI gate: the workflow's lint and test checks do not validate commit messages. Follow it in new commits; squash merges from the PR title already produce a conventional subject.
+
 ## Changeset policy
 
 Changesets document updates to packages for the release changelog. Follow this policy when deciding whether a change needs a changeset:
